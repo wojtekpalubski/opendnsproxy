@@ -1,0 +1,12 @@
+---
+- hosts: serwery_dns
+  become: true
+  tasks:
+  - name: instalacja bind
+    yum: name=bind state=present
+  - name: konfiguracja bind
+    template: src=named.conf.template dest=/etc/named.conf mode=0610 group=named owner=root
+  - name: sprawdzenie konfiguracji bind
+    shell: /usr/sbin/named-checkconf /etc/named.conf
+  - name: instalacja haproxy
+    yum: name=haproxy state=present

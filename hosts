@@ -1,0 +1,6 @@
+[serwery_dns]
+pro
+
+[serwery_dns:vars]
+haproxy_ip=10.0.2.15
+openshift_domain=apps.wpa.pl
